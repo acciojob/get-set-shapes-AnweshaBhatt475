@@ -1,4 +1,3 @@
-// Rectangle Class
 class Rectangle {
   constructor(width, height) {
     if (width <= 0 || height <= 0) {
@@ -21,28 +20,19 @@ class Rectangle {
   }
 }
 
-// Square Class (inherits from Rectangle)
 class Square extends Rectangle {
   constructor(side) {
     if (side <= 0) {
       throw new Error("Side must be a positive integer.");
     }
-    super(side, side); // Use Rectangle's constructor
+    super(side, side);
   }
 
   getPerimeter() {
-    return 4 * this._width; // Or 4 * this._height, both are the same for a square
+    return 4 * this._width;
   }
 }
 
-// Example Usage
-const rectangle = new Rectangle(5, 10);
-console.log(rectangle.width); // Output: 5
-console.log(rectangle.height); // Output: 10
-console.log(rectangle.getArea()); // Output: 50
-
-const square = new Square(7);
-console.log(square.width); // Output: 7
-console.log(square.height); // Output: 7
-console.log(square.getArea()); // Output: 49
-console.log(square.getPerimeter()); // Output: 28
+// Attach to window object
+window.Rectangle = Rectangle;
+window.Square = Square;
